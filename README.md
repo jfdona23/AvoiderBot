@@ -1,4 +1,4 @@
-# AvoiderBot, a "dodge everything" simple robot made around an ESP32
+# AvoiderBot - Another "dodge everything" robot
 
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
