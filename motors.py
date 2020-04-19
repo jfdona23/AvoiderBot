@@ -21,14 +21,14 @@ class Motors:
         self.motorLA.off()
         self.motorLB.on()
 
-    def right(self):
+    def left(self):
         sleep(0.1)
         self.motorRA.on()
         self.motorRB.off()
         self.motorLA.off()
         self.motorLB.on()
 
-    def left(self):
+    def right(self):
         sleep(0.1)
         self.motorRA.off()
         self.motorRB.on()
