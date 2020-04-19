@@ -1,6 +1,12 @@
 # (Work in Progress)
 # AvoiderBot - Another "dodge everything" robot
 
+## Table of contents
+1. [About](#about)
+2. [How it works...briefly](#how-it-worksbriefly)
+3. [Additional libraries used in this project](#additional-libraries-used-in-this-project)
+4. [What's next?](#whats-next)
+
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
 It's based on the already known ESP32, it's in particular is a **DOIT DevKit v1 board**. Also features an independent Quelima SQ12 camera to record its trip.
