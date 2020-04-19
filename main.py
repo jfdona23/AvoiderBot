@@ -22,3 +22,59 @@ motorRB = Pin(14, Pin.OUT)
 motorLA = Pin(12, Pin.OUT)
 motorLB = Pin(13, Pin.OUT)
 motion = Motors(motorRA, motorRB, motorLA, motorLB)
+motion.stop() # Ensure the motors are stopped
+
+"""
+Useful function to control led blinking.
+Parameters are:
+- The led to control
+- The ON time in seconds
+- The OFF time in seconds
+- The amount of blinks.
+"""
+def blinkLed(led, onTime, offTime, blinks):
+    for _ in range(blinks):
+        led.value(not led.value())
+        sleep(onTime)
+        led.value(not led.value())
+        sleep(offTime)
+
+"""
+This function is intended to provide visual feedback the user about the HW functioning.
+It has not any way to recognize faulting hardware, so that depends on the user only.
+Tests:
+- Turn on the board's led for 2 seconds.
+- Turn on the red led for 2 seconds.
+- Turn on the red led for 2 seconds.
+- Move the ultrasonic sensor to the right and left, then leave it in  the middle.
+- Call sonar.distance_cm() and if it's grater than 5cm blink the board's led two times.
+  Otherwise board's led will blink four times.
+- Call motion.left() and motion.right() to test the motors.
+  That way if one of the motors is failing, it should be easier to see.
+"""
+def selfTest():
+    blinkLed(ledBoard, 2, 0.1, 1)
+    blinkLed(ledRed, 2, 0.1, 1)
+    blinkLed(ledBlue, 2, 0.1, 1)
+
+    sleep(0.5)
+
+    servo1.duty(70); sleep(0.3)
+    servo1.duty(20); sleep(0.3)
+    servo1.duty(70); sleep(0.3)
+    servo1.duty(125); sleep(0.3)
+    servo1.duty(70); sleep(0.3)
+
+    sleep(0.5)
+
+    if sonar.distance_cm() > 5:
+        blinkLed(ledBoard, 0.5, 0.3, 2)
+    else:
+        blinkLed(ledBoard, 0.5, 0.3, 4)
+
+    sleep(0.5)
+
+    motion.left()
+    motion.right()
+
+selfTest()
