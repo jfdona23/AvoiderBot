@@ -1,4 +1,5 @@
-# (Work in Progress) AvoiderBot - Another "dodge everything" robot
+# (Work in Progress)
+# AvoiderBot - Another "dodge everything" robot
 
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
@@ -16,8 +17,8 @@ I've chosen [micropython](https://github.com/micropython/micropython) as the mai
 
 Oh, and it has two leds to provide feedback to the user. I've not decided what kind of feedback although.
 
-## Additional libraries used here.
-* HCSR04 library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library to imports *utime* instead of *time*, and also from *machine* only imports the functions needed, which are *Pin* and *time_pulse_us*. Bear in mind I re-wrote the line 46 to fit with this change.
+## Additional libraries used in this project.
+* **HCSR04** library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library to imports *utime* instead of *time*, and also from *machine* only imports the functions needed, which are *Pin* and *time_pulse_us*. Bear in mind I re-wrote the line 46 to fit with this change.
 ```python
 # Replaced
 pulse_time = machine.time_pulse_us(self.echo, 1, self.echo_timeout_us)
@@ -25,7 +26,18 @@ pulse_time = machine.time_pulse_us(self.echo, 1, self.echo_timeout_us)
 pulse_time = time_pulse_us(self.echo, 1, self.echo_timeout_us)
 ```
 * Servos doesn't need any library to work with an ESP32 but I've learned about how to use them [from here](https://icircuit.net/micropython-controlling-servo-esp32-nodemcu/2385). And also a few PWM details from [this Sparkfun website](https://learn.sparkfun.com/tutorials/pulse-width-modulation/all).
-* Motors library is just a Class made by me to get the motors logic apart from the main code.
+* **Motors** library is just a Class made by me to get the motors logic apart from the main code.
+* **Credentials** is another Class made by me to store passwords and personal data. Then I ignore *credentials.py* file using *.gitignore*. The Class content is the following:
+```python
+class creds:
+    def __init__(self, hostname, user, passwd):
+        self.hostname = hostname
+        self.user = user
+        self.passwd = passwd
+
+# And then I can create any secret as an object:
+my_wifi = creds("dummyHost", "mySSID", "mySuperPassword")
+```
 
 ## What's next?
 A few future ideas are:
