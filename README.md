@@ -2,10 +2,17 @@
 # AvoiderBot - Another "dodge everything" robot
 
 ## Table of contents
+<<<<<<< HEAD
 1. [About]
 2. [How it works...briefly]
 3. [Additional libraries used in this project]
 4. [What's next?]
+=======
+1. [About](#about)
+2. [How it works...briefly](#how-it-worksbriefly)
+3. [Additional libraries used in this project](#additional-libraries-used-in-this-project)
+4. [What's next?](#whats-next)
+>>>>>>> c9d43125ede6a20736db97c7f5da014f61663f6f
 
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
