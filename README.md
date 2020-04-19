@@ -2,11 +2,6 @@
 # AvoiderBot - Another "dodge everything" robot
 
 ## Table of contents
-1. [About]
-2. [How it works...briefly]
-3. [Additional libraries used in this project]
-4. [What's next?]
-=======
 1. [About](#about)
 2. [How it works...briefly](#how-it-worksbriefly)
 3. [Additional libraries used in this project](#additional-libraries-used-in-this-project)
