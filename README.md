@@ -1,6 +1,12 @@
 # (Work in Progress)
 # AvoiderBot - Another "dodge everything" robot
 
+## Table of contents
+1. [About]
+2. [How it works...briefly]
+3. [Additional libraries used in this project]
+4. [What's next?]
+
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
 It's based on the already known ESP32, it's in particular is a **DOIT DevKit v1 board**. Also features an independent Quelima SQ12 camera to record its trip.
@@ -17,7 +23,7 @@ I've chosen [micropython](https://github.com/micropython/micropython) as the mai
 
 Oh, and it has two leds to provide feedback to the user. I've not decided what kind of feedback although.
 
-## Additional libraries used in this project.
+## Additional libraries used in this project
 * **HCSR04** library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library to imports *utime* instead of *time*, and also from *machine* only imports the functions needed, which are *Pin* and *time_pulse_us*. Bear in mind I re-wrote the line 46 to fit with this change.
 ```python
 # Replaced
@@ -29,7 +35,7 @@ pulse_time = time_pulse_us(self.echo, 1, self.echo_timeout_us)
 * **Motors** library is just a Class made by me to get the motors logic apart from the main code.
 * **Credentials** is another Class made by me to store passwords and personal data. Then I ignore *credentials.py* file using *.gitignore*. The Class content is the following:
 ```python
-class creds:
+class Creds:
     def __init__(self, hostname, user, passwd):
         self.hostname = hostname
         self.user = user
