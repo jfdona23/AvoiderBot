@@ -9,7 +9,7 @@
 
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
-It's based on the already known ESP32, it's in particular is a **DOIT DevKit v1 board**. Also features an independent Quelima SQ12 camera to record its trip.
+It's based on the already known ESP32, it's in particular is a **DOIT DevKit v1 board** (se pinout [here](./doit_esp32_devkit_v1-1.png)). Also features an independent Quelima SQ12 camera to record its trip.
 
 ## How it works...briefly
 The robot acts by its own using a **HC-SR04** ultrasonic sensor to detect any obstacle in front of him. Then analyzes his surroundings moving the sensor 90 degrees in both directions and deciding which direction has the farest obstacle. The motor part is handled by two 3v-12v DC motors with gearbox (yes, the yellow ones) and a tiny **L9110** which is a simple double *H bridge* to control the motor and its spin direction.
