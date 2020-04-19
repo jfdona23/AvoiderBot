@@ -8,14 +8,39 @@ class Motors:
         self.motorLB = lB
 
     def forward(self):
-        # forward code here
+        sleep(0.1)
+        self.motorRA.on()
+        self.motorRB.off()
+        self.motorLA.on()
+        self.motorLB.off()
 
     def backward(self):
-        # backward code here
+        sleep(0.1)
+        self.motorRA.off()
+        self.motorRB.on()
+        self.motorLA.off()
+        self.motorLB.on()
 
     def left(self):
-        # left code here
+        sleep(0.1)
+        self.motorRA.on()
+        self.motorRB.off()
+        self.motorLA.off()
+        self.motorLB.on()
+        sleep(2)
 
     def right(self):
-        # right code here
+        sleep(0.1)
+        self.motorRA.off()
+        self.motorRB.on()
+        self.motorLA.on()
+        self.motorLB.off()
+        sleep(2)
+
+    def stop(self):
+        sleep(0.1)
+        self.motorRA.off()
+        self.motorRB.off()
+        self.motorLA.off()
+        self.motorLB.off()
     
