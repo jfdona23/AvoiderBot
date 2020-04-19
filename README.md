@@ -9,7 +9,7 @@
 
 ## About
 This project is just for fun and serves to improve my skill using micropython among other things.
-It's based on the already known ESP32, it's in particular is a **DOIT DevKit v1 board** (see pinout [here](./doit_esp32_devkit_v1-1.png)). Also features an independent Quelima SQ12 camera to record its trip.
+It's based on the already known ESP32, it's in particular is a **DOIT DevKit v1 board** (see the pinout [here](./doit_esp32_devkit_v1-1.png)). Also features an independent Quelima SQ12 camera to record its trip.
 
 ## How it works...briefly
 The robot acts by its own using a **HC-SR04** ultrasonic sensor to detect any obstacle in front of him. Then analyzes his surroundings moving the sensor 90 degrees in both directions and deciding which direction has the farest obstacle. The motor part is handled by two 3v-12v DC motors with gearbox (yes, the yellow ones) and a tiny **L9110** which is a simple double *H bridge* to control the motor and its spin direction.
@@ -24,7 +24,7 @@ I've chosen [micropython](https://github.com/micropython/micropython) as the mai
 Oh, and it has two leds to provide feedback to the user. I've not decided what kind of feedback although.
 
 ## Additional libraries used in this project
-* **HCSR04** library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library to imports *utime* instead of *time*, and also from *machine* only imports the functions needed, which are *Pin* and *time_pulse_us*. Bear in mind I re-wrote the line 46 to fit with this change.
+* **HCSR04** library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library to imports *utime* instead of *time*, and also from *machine* only imports the needed functions, which are *Pin* and *time_pulse_us*. Bear in mind I re-wrote the [line 45](https://github.com/jfdona23/AvoiderBot/blob/358afe88c0a0dbc69586503fc2d112fd18e1c7a1/hcsr04.py#L45) to fit with this change.
 ```python
 # Replaced
 pulse_time = machine.time_pulse_us(self.echo, 1, self.echo_timeout_us)
