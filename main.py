@@ -75,6 +75,11 @@ def selfTest():
     sleep(0.5)
 
     motion.left()
+    sleep(2)
+    motion.stop()
+
     motion.right()
+    sleep(2)
+    motion.stop()
 
 selfTest()
