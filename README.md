@@ -24,7 +24,7 @@ I've chosen [micropython](https://github.com/micropython/micropython) as the mai
 Oh, and it has two leds to provide feedback to the user. I've not decided what kind of feedback although.
 
 ## Additional libraries used in this project
-* **HCSR04** library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library to imports *utime* instead of *time*, and also from *machine* only imports the needed functions, which are *Pin* and *time_pulse_us*. Bear in mind I re-wrote the [line 45](https://github.com/jfdona23/AvoiderBot/blob/358afe88c0a0dbc69586503fc2d112fd18e1c7a1/hcsr04.py#L45) to fit with this change.
+* **HCSR04** library is from [here](https://github.com/rsc1975/micropython-hcsr04). I've tweaked the library (PR [here](https://github.com/rsc1975/micropython-hcsr04/pull/7)) to imports *sleep_us* from *utime* instead of *time* itself. Also from *machine* only imports the needed functions, which are *Pin* and *time_pulse_us*. Micro libraries (those with 'u' at the begining) are better suitbale for hardware like microcontrollers, therefore are more efficent. Finally, bear in mind I re-wrote the lines containing *time.* and *machine.* to fit with this change. For instance:
 ```python
 # Replaced
 pulse_time = machine.time_pulse_us(self.echo, 1, self.echo_timeout_us)
