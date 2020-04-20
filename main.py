@@ -82,4 +82,36 @@ def selfTest():
     sleep(2)
     motion.stop()
 
+def fixDirection():
+  motion.backward()
+  sleep(0.5)
+  motion.stop()
+
+  # Look for nearby objects
+  servo1.duty(20) # Turn sonar to the Right
+  distRight = sonar.distance_cm()
+  sleep(0.5)
+  servo1.duty(125) # Turn sonar to the Left
+  distLeft = sonar.distance_cm()
+  sleep(0.5)
+  servo1.duty(70) # Leave sonar in the middle
+
+  if distLeft > distRight:
+    motion.left()
+    sleep(0.5)
+    motion.stop()
+  else:
+    motion.right()
+    sleep(0.5)
+    motion.stop()
+
+def main():
+  while True:
+    if sonar.distance_cm < 5:
+      motion.stop()
+      fixDirection()
+    else:
+      motion.forward()
+
 selfTest()
+main()
