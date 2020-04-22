@@ -6,8 +6,8 @@ from hcsr04 import HCSR04
 
 # LED port definitions
 ledBoard = Pin(2, Pin.OUT)
-ledRed = Pin(22, Pin.OUT)
-ledBlue = Pin(23, Pin.OUT)
+ledRed = Pin(16, Pin.OUT)
+ledBlue = Pin(17, Pin.OUT)
 
 # HC-SR04 port definitions
 sonar = HCSR04(trigger_pin=25, echo_pin=26)
