@@ -7,28 +7,28 @@ class Motors:
         self.motorLA = lA
         self.motorLB = lB
 
-    def forward(self):
+    def backward(self):
         sleep(0.1)
         self.motorRA.on()
         self.motorRB.off()
         self.motorLA.on()
         self.motorLB.off()
 
-    def backward(self):
+    def forward(self):
         sleep(0.1)
         self.motorRA.off()
         self.motorRB.on()
         self.motorLA.off()
         self.motorLB.on()
 
-    def left(self):
+    def right(self):
         sleep(0.1)
         self.motorRA.on()
         self.motorRB.off()
         self.motorLA.off()
         self.motorLB.on()
 
-    def right(self):
+    def left(self):
         sleep(0.1)
         self.motorRA.off()
         self.motorRB.on()

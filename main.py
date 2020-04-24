@@ -17,17 +17,17 @@ servo1 = PWM(Pin(21), freq=50)  # Duty cycle for my SG09 servo is between 20 - 1
                                 # Detailed info in https://learn.sparkfun.com/tutorials/pulse-width-modulation/all
 
 # DC Motor port definitions
-motorRA = Pin(27, Pin.OUT)
-motorRB = Pin(14, Pin.OUT)
-motorLA = Pin(12, Pin.OUT)
-motorLB = Pin(13, Pin.OUT)
+motorLA = Pin(27, Pin.OUT)
+motorLB = Pin(14, Pin.OUT)
+motorRA = Pin(12, Pin.OUT)
+motorRB = Pin(13, Pin.OUT)
 motion = Motors(motorRA, motorRB, motorLA, motorLB)
 motion.stop() # Ensure the motors are stopped
 
 """
 Useful function to control led blinking.
 Parameters are:
-- The led to control
+- The led to control as a Pin object.
 - The ON time in seconds
 - The OFF time in seconds
 - The amount of blinks.
@@ -75,16 +75,16 @@ def selfTest():
     sleep(0.5)
 
     motion.left()
-    sleep(2)
+    sleep(0.5)
     motion.stop()
 
     motion.right()
-    sleep(2)
+    sleep(0.5)
     motion.stop()
 
 def fixDirection():
   motion.backward()
-  sleep(0.5)
+  sleep(0.3)
   motion.stop()
 
   # Look for nearby objects
@@ -98,16 +98,16 @@ def fixDirection():
 
   if distLeft > distRight:
     motion.left()
-    sleep(0.5)
+    sleep(0.4)
     motion.stop()
   else:
     motion.right()
-    sleep(0.5)
+    sleep(0.4)
     motion.stop()
 
 def main():
   while True:
-    if sonar.distance_cm < 5:
+    if sonar.distance_cm() < 25:
       motion.stop()
       fixDirection()
     else:
