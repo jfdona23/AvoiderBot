@@ -15,8 +15,8 @@ The robot acts by its own using a **HC-SR04** ultrasonic sensor to detect any ob
 
 The [SQ12](https://org-info.mobi/manual/sq12-en.htm) camera is a tiny DVR camera, generally used in sports or short trips due its small battery (around 200mah).
 In my case the battery just got fried so I'm investigating the  best and safer way to supply power to this tiny thing without need to buy a new battery:
-1. One option is supply the camera through its own "USB" port, but I need to use the provided USB cable since is has a non-standard USB socket on the camera.
-2. A second option is soldering two wires where the original battery was and connect it to 5v on the breadboard. I'm not so confident that it has an internal 3V3 regulator, however it should have one. **I've chosen this option and it worked flawlessly.**
+1. ~~One option is supply the camera through its own "USB" port, but I need to use the provided USB cable since is has a non-standard USB socket on the camera.~~
+2. A second option is soldering two wires where the original battery was and connect it to 5v on the breadboard. I'm not so confident that it has an internal 3V3 regulator, however it should have one. (**I've chosen this option and it worked flawlessly**).
 
 I've chosen [micropython](https://github.com/micropython/micropython) as the main language for this project due I already know the language and also I prefer to work with its [REPL](https://github.com/micropython/webrepl) instead of upload Arduino *.ino* files everytime I need to test a new change.
 
@@ -46,7 +46,7 @@ my_wifi = creds("dummyHost", "mySSID", "mySuperPassword")
 
 ## What's next?
 A few future ideas are:
-* Be able to control the robot through WiFi or Bluetooth.
+* Be able to control the robot through WiFi or Bluetooth. (See [RestfulBot](https://github.com/jfdona23/RestfulBot) project)
 * Remove the camera and add a few motors to shoot Nerf darts. I got the idea from [here](https://create.arduino.cc/projecthub/Little_french_kev/bluetooth-nerf-turret-03363b)
 * Improve the robot capabilities using the Cloud. Maybe some AWS Lambda functions and an API gateway, IFTTT webhooks or even Machine Learning, why not?
 * At some point, I would like to replace the wheels with tank tracks (caterpillar tracks).
