@@ -18,7 +18,7 @@ In my case the battery just got fried so I'm investigating the  best and safer w
 1. ~~One option is supply the camera through its own "USB" port, but I need to use the provided USB cable since is has a non-standard USB socket on the camera.~~
 2. A second option is soldering two wires where the original battery was and connect it to 5v on the breadboard. I'm not so confident that it has an internal 3V3 regulator, however it should have one. (**I've chosen this option and it worked flawlessly**).
 
-I've chosen [micropython](https://github.com/micropython/micropython) as the main language for this project due I already know the language and also I prefer to work with its [REPL](https://github.com/micropython/webrepl) instead of upload Arduino *.ino* files everytime I need to test a new change.\
+I've chosen [micropython](https://github.com/micropython/micropython) as the main language for this project due I already know the language and also I prefer to work with its [REPL](https://github.com/micropython/webrepl) instead of upload Arduino *.ino* files everytime I need to test a new change.
 
 Oh, and it has two leds to provide feedback to the user. I've not decided what kind of feedback although.
 
